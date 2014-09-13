@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6206.8" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="K6e-WA-Ua9">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7026.1"/>
+    </dependencies>
+    <scenes>
+        <!--Bo the dog-->
+        <scene sceneID="wj8-Jc-8aV">
+            <objects>
+                <viewController id="VhN-Mh-H8t" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="s18-Y7-nlr"/>
+                        <viewControllerLayoutGuide type="bottom" id="0L9-lA-RBI"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="5x3-0Q-64I">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Bo.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="qSr-RW-IdR">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                                </variation>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="qSr-RW-IdR"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="qSr-RW-IdR"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <navigationItem key="navigationItem" title="Bo the dog" id="5AQ-B9-X7h">
+                        <barButtonItem key="rightBarButtonItem" title="Message" id="dpI-nw-39D">
+                            <connections>
+                                <segue destination="vXZ-lx-hvc" kind="show" id="Abl-6b-Z8F"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4">
+                        <size key="portraitSize" width="320" height="568"/>
+                        <size key="landscapeSize" width="568" height="320"/>
+                    </simulatedScreenMetrics>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IZV-iv-ifu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="540" y="336"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="ufC-wZ-h7g">
+            <objects>
+                <viewController id="vXZ-lx-hvc" customClass="ViewController" customModule="Postcard" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
+                        <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="JRT.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="O3I-6i-XtB">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="223" y="72" width="80" height="80"/>
+                                </variation>
+                            </imageView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="recipient" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4Uv-GO-rJ4">
+                                <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="15" y="201" width="288" height="30"/>
+                                </variation>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="talk to me" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nQj-R8-H1h">
+                                <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="16" y="239" width="288" height="30"/>
+                                </variation>
+                            </textField>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Yeah" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ras-rV-7RU">
+                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="15" y="277" width="287" height="183"/>
+                                </variation>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hK2-HI-BY5">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <color key="backgroundColor" red="0.80746858020000001" green="0.42978399150000002" blue="0.1039462868" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Send">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="82" y="97" width="46" height="30"/>
+                                </variation>
+                                <connections>
+                                    <action selector="sendPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="otc-LH-gzi"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="O3I-6i-XtB"/>
+                                <exclude reference="4Uv-GO-rJ4"/>
+                                <exclude reference="nQj-R8-H1h"/>
+                                <exclude reference="ras-rV-7RU"/>
+                                <exclude reference="hK2-HI-BY5"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="O3I-6i-XtB"/>
+                                <include reference="4Uv-GO-rJ4"/>
+                                <include reference="nQj-R8-H1h"/>
+                                <include reference="ras-rV-7RU"/>
+                                <include reference="hK2-HI-BY5"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4">
+                        <size key="portraitSize" width="320" height="568"/>
+                        <size key="landscapeSize" width="568" height="320"/>
+                    </simulatedScreenMetrics>
+                    <connections>
+                        <outlet property="mailButton" destination="hK2-HI-BY5" id="ZX4-k6-hhF"/>
+                        <outlet property="messageField" destination="nQj-R8-H1h" id="68L-dI-Z9y"/>
+                        <outlet property="messageLabel" destination="ras-rV-7RU" id="WYh-gR-GUT"/>
+                        <outlet property="recipientField" destination="4Uv-GO-rJ4" id="qxJ-qG-kNz"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1155" y="336"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="bKR-Wp-4mf">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="K6e-WA-Ua9" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4">
+                        <size key="portraitSize" width="320" height="568"/>
+                        <size key="landscapeSize" width="568" height="320"/>
+                    </simulatedScreenMetrics>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="xpZ-cP-Voi">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="VhN-Mh-H8t" kind="relationship" relationship="rootViewController" id="l1C-Ki-S3K"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZX4-EG-ygF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-42" y="336"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Bo.jpg" width="1888" height="2834"/>
+        <image name="JRT.jpg" width="270" height="407"/>
+    </resources>
+</document>
