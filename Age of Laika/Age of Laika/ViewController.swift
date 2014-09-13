@@ -22,10 +22,16 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+//each human year equals 10.5 dog years for the first two years, then 4 dog years for each human year thereafter
     @IBAction func convertPressed(sender: UIButton) {
-        let conversion = 7.2
-        var dog = Double((humanAgeField.text as NSString).doubleValue) * Double(conversion)
+        var human = Double((humanAgeField.text as NSString).doubleValue)
+        var dog:Double
+        if human < 2 {
+            dog = human * 10.5
+        } else{
+            dog = 21 + 4 * (human - 2)
+        }
+            
         newAgeLabel.text = "\(dog)"
         newAgeLabel.hidden = false
         humanAgeField.resignFirstResponder()
