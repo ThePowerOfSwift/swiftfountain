@@ -52,12 +52,20 @@ class ViewController: UIViewController {
         do {rando = Int(arc4random_uniform(UInt32(tigers.count)))}
         while nameLabel.text == tigers[rando].name
         //println(rando)
-        UIView.transitionWithView(self.view, duration: 0.2, options: UIViewAnimationOptions.TransitionCrossDissolve, animations: {
-            self.myimageView.image = self.tigers[self.rando].image
-            self.nameLabel.text = self.tigers[self.rando].name
-            self.breedLabel.text = self.tigers[self.rando].breed
-            self.ageLabel.text = "\(self.tigers[self.rando].age)"
-            }, completion: { (finished: Bool) -> () in
-        })
+        UIView.transitionWithView(
+			self.view,
+			duration: 0.2,
+			options: UIViewAnimationOptions.TransitionCrossDissolve,
+			animations: {
+	            self.myimageView.image = self.tigers[self.rando].image
+    	        self.nameLabel.text = self.tigers[self.rando].name
+        	    self.breedLabel.text = self.tigers[self.rando].breed
+            	self.ageLabel.text = "\(self.tigers[self.rando].age)"
+            },
+			completion: {
+				(finished: Bool) -> () in
+        	}
+		)
+		tigers[rando].chuff()
     }
 }

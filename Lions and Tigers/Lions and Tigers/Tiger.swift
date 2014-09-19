@@ -17,4 +17,8 @@ struct Tiger{
         self.breed = breed
         self.image = image
     }
+    
+    func chuff(){
+        println("Tiger: Chuff Chuff")
+    }
 }
