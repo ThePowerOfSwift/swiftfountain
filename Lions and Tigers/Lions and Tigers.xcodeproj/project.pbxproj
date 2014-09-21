@@ -17,6 +17,8 @@
 		B8CD33C819C88F0B00A36EB7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B8CD33C719C88F0B00A36EB7 /* Images.xcassets */; };
 		B8CD33D419C88F0B00A36EB7 /* Lions_and_TigersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8CD33D319C88F0B00A36EB7 /* Lions_and_TigersTests.swift */; };
 		F62FAD7619CE600400D639B2 /* Lion.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62FAD7519CE600400D639B2 /* Lion.swift */; };
+		F62FAD7919CE9A3100D639B2 /* Bo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F62FAD7719CE9A3100D639B2 /* Bo.jpg */; };
+		F62FAD7A19CE9A3100D639B2 /* JRT.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F62FAD7819CE9A3100D639B2 /* JRT.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +46,8 @@
 		B8CD33D219C88F0B00A36EB7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B8CD33D319C88F0B00A36EB7 /* Lions_and_TigersTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lions_and_TigersTests.swift; sourceTree = "<group>"; };
 		F62FAD7519CE600400D639B2 /* Lion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Lion.swift; sourceTree = "<group>"; };
+		F62FAD7719CE9A3100D639B2 /* Bo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Bo.jpg; sourceTree = "<group>"; };
+		F62FAD7819CE9A3100D639B2 /* JRT.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = JRT.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +111,8 @@
 		B8CD33BE19C88F0B00A36EB7 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				F62FAD7719CE9A3100D639B2 /* Bo.jpg */,
+				F62FAD7819CE9A3100D639B2 /* JRT.jpg */,
 				B89D003C19C89FF000237787 /* MalayanTiger.jpg */,
 				B89D003A19C89F9200237787 /* SiberianTiger.jpg */,
 				B89D003819C896CD00237787 /* BengalTiger.jpg */,
@@ -212,7 +218,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F62FAD7919CE9A3100D639B2 /* Bo.jpg in Resources */,
 				B89D003D19C89FF000237787 /* MalayanTiger.jpg in Resources */,
+				F62FAD7A19CE9A3100D639B2 /* JRT.jpg in Resources */,
 				B89D003B19C89F9200237787 /* SiberianTiger.jpg in Resources */,
 				B89D003919C896CD00237787 /* BengalTiger.jpg in Resources */,
 				B8CD33C619C88F0B00A36EB7 /* Main.storyboard in Resources */,

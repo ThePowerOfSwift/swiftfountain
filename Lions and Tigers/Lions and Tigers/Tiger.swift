@@ -25,6 +25,7 @@ struct Tiger{
     }
     
     func chuff(){
+		//cannot use tiger properties such as age even with 'self'
         println("Tiger: Chuff Chuff")
     }
 }

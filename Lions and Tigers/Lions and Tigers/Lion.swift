@@ -25,5 +25,8 @@ class Lion {
 		self.isAlphaMale = isAlphaMale
 		self.image = image
 	}
-
+	func becomeAlphaMale(){
+		//unlike a struct, the class can access itself
+		self.isAlphaMale = true
+	}
 }
