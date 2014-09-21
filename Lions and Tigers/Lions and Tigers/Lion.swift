@@ -29,4 +29,7 @@ class Lion {
 		//unlike a struct, the class can access itself
 		self.isAlphaMale = true
 	}
+	func roar(){
+		println("ROAR")
+	}
 }

@@ -17,6 +17,7 @@ class ViewController: UIViewController {
 
     var tigers:[Tiger] = []
 	var lions:[Lion] = []
+	var lionCubs:[LionCub] = []
     var rando:Int = 0
 	var currentAnimal = (species: "Tiger", index: 0)
 
@@ -36,7 +37,11 @@ class ViewController: UIViewController {
 			Lion(age: 1, name: "Mufasa", subspecies: "West African", isAlphaMale: false, image: UIImage(named: "Bo.jpg")),
 			Lion(age: 2, name: "Sarabi", subspecies: "Barbary", isAlphaMale: false, image: UIImage(named: "JRT.jpg"))
 		]
-    }
+		//Lion Cubs
+		var lionCub = LionCub(age: 1, name: "Simba", subspecies: "Masai", isAlphaMale: false, image: UIImage(named: "RedBalloon1.jpg"))
+		lionCubs.append(lionCub)
+		lionCubs.append(LionCub(age: 2, name: "Naga", subspecies: "Congan", isAlphaMale: false, image: UIImage(named: "RedBalloon2.jpg")))
+	}
 	
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -49,6 +54,10 @@ class ViewController: UIViewController {
 			do {rando = Int(arc4random_uniform(UInt32(lions.count)))}
 				while nameLabel.text == lions[rando].name
 			currentAnimal = ("Lion", rando)
+		case ("Lion",_):
+			do {rando = Int(arc4random_uniform(UInt32(lionCubs.count)))}
+				while nameLabel.text == lionCubs[rando].name
+			currentAnimal = ("Lion Cubs", rando)
 		default:
 			do {rando = Int(arc4random_uniform(UInt32(tigers.count)))}
 				while nameLabel.text == tigers[rando].name
@@ -67,11 +76,16 @@ class ViewController: UIViewController {
 					self.nameLabel.text = self.tigers[self.rando].name
 					self.breedLabel.text = self.tigers[self.rando].breed
 					self.ageLabel.text = "\(self.tigers[self.rando].age)"
-				} else {
+				} else if self.currentAnimal.species == "Lion" {
 					self.myimageView.image = self.lions[self.rando].image
 					self.nameLabel.text = self.lions[self.rando].name
 					self.breedLabel.text = self.lions[self.rando].subspecies
 					self.ageLabel.text = "\(self.lions[self.rando].age)"
+				} else {
+					self.myimageView.image = self.lionCubs[self.rando].image
+					self.nameLabel.text = self.lionCubs[self.rando].name
+					self.breedLabel.text = self.lionCubs[self.rando].subspecies
+					self.ageLabel.text = "\(self.lionCubs[self.rando].age)"
 				}
 			},
 			completion: {
