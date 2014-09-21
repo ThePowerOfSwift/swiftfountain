@@ -11,6 +11,12 @@ import UIKit
 
 struct Tiger{
     var age:Int, name:String, breed:String, image:UIImage
+	init(){
+		self.age = 0
+		self.name = ""
+		self.breed = ""
+		self.image = UIImage(named: "")
+	}
     init(age: Int, name: String, breed: String, image: UIImage){
         self.age = age
         self.name = name
