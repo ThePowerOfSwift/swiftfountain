@@ -43,7 +43,7 @@ class ViewController: UIViewController {
 			Lion(age: 2, name: "Sarabi", subspecies: "Barbary", isAlphaMale: false, image: UIImage(named: "lioness.jpg"))
 		]
     }
-
+	
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
