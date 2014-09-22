@@ -21,11 +21,15 @@ class ViewController: UIViewController {
 	
 	//constants
 	let kMarginForView:CGFloat = 10.0
-	let kSixth:CGFloat = 1/6
+	let kMarginForSlot:CGFloat = 2.0
+
 	let kNumberOfRows = 3
 	let kNumberOfCols = 3
+
+	let kSixth:CGFloat = 1/6
 	let kThird:CGFloat = 1/3
-	let kMarginForSlot:CGFloat = 2.0
+	let kHalf:CGFloat = 1/2
+	let kEigth:CGFloat = 1/8
 	
 	//third container: information labels
 	var creditsLabel: UILabel!
@@ -35,6 +39,12 @@ class ViewController: UIViewController {
 	var betTitleLabel: UILabel!
 	var winnerPaidTitleLabel: UILabel!
 	
+	//fourth container: buttons
+	var resetButton: UIButton!
+	var betOneButton: UIButton!
+	var betMaxButton: UIButton!
+	var spinButton: UIButton!
+	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		// Do any additional setup after loading the view, typically from a nib.
@@ -42,6 +52,7 @@ class ViewController: UIViewController {
 		setupFirstContainer(firstContainer)
 		setupSecondContainer(secondContainer)
 		setupThirdContainer(thirdContainer)
+		setupFourthContainer(fourthContainer)
 	}
 
 	override func didReceiveMemoryWarning() {
@@ -155,5 +166,65 @@ class ViewController: UIViewController {
 		containerView.addSubview(creditsTitleLabel)
 		containerView.addSubview(betTitleLabel)
 		containerView.addSubview(winnerPaidTitleLabel)
+	}
+	
+	func setupFourthContainer(containerView: UIView) {
+		resetButton = UIButton()
+		betOneButton = UIButton()
+		betMaxButton = UIButton()
+		spinButton = UIButton()
+		
+		resetButton.setTitle("Reset", forState: UIControlState.Normal)
+		resetButton.setTitleColor(UIColor.blueColor(), forState: UIControlState.Normal)
+		resetButton.titleLabel?.font = UIFont(name: "Superclarendon-Bold", size: 12)
+		resetButton.backgroundColor = UIColor.lightGrayColor()
+		resetButton.sizeToFit()
+		resetButton.center = CGPointMake(containerView.frame.width * kEigth, containerView.frame.height * kHalf)
+		resetButton.addTarget(self, action: "resetButtonPressed:", forControlEvents: UIControlEvents.TouchUpInside)
+	
+		betOneButton.setTitle("Bet One", forState: UIControlState.Normal)
+		betOneButton.setTitleColor(UIColor.blueColor(), forState: UIControlState.Normal)
+		betOneButton.titleLabel?.font = UIFont(name: "Superclarendon-Bold", size: 12)
+		betOneButton.backgroundColor = UIColor.lightGrayColor()
+		betOneButton.sizeToFit()
+		betOneButton.center = CGPointMake(containerView.frame.width * kEigth * 3, containerView.frame.height * kHalf)
+		betOneButton.addTarget(self, action: "betOneButtonPressed:", forControlEvents: UIControlEvents.TouchUpInside)
+		
+		betMaxButton.setTitle("Bet Max", forState: UIControlState.Normal)
+		betMaxButton.setTitleColor(UIColor.blueColor(), forState: UIControlState.Normal)
+		betMaxButton.titleLabel?.font = UIFont(name: "Superclarendon-Bold", size: 12)
+		betMaxButton.backgroundColor = UIColor.redColor()
+		betMaxButton.sizeToFit()
+		betMaxButton.center = CGPointMake(containerView.frame.width * kEigth * 5, containerView.frame.height * kHalf)
+		betMaxButton.addTarget(self, action: "betMaxButtonPressed:", forControlEvents: UIControlEvents.TouchUpInside)
+
+		spinButton.setTitle("Spin", forState: UIControlState.Normal)
+		spinButton.setTitleColor(UIColor.blueColor(), forState: UIControlState.Normal)
+		spinButton.titleLabel?.font = UIFont(name: "Superclarendon-Bold", size: 12)
+		spinButton.backgroundColor = UIColor.greenColor()
+		spinButton.sizeToFit()
+		spinButton.center = CGPointMake(containerView.frame.width * kEigth * 7, containerView.frame.height * kHalf)
+		spinButton.addTarget(self, action: "spinButtonPressed:", forControlEvents: UIControlEvents.TouchUpInside)
+
+		containerView.addSubview(resetButton)
+		containerView.addSubview(betOneButton)
+		containerView.addSubview(betMaxButton)
+		containerView.addSubview(spinButton)
+	}
+	
+	func resetButtonPressed(button: UIButton) {
+		println("Reset Button Pressed")
+	}
+	
+	func betOneButtonPressed(button: UIButton) {
+		println("Bet One Button Pressed")
+	}
+	
+	func betMaxButtonPressed(button: UIButton) {
+		println("Bet Max Button Pressed")
+	}
+	
+	func spinButtonPressed(button: UIButton) {
+		println("Spin Pressed")
 	}
 }
