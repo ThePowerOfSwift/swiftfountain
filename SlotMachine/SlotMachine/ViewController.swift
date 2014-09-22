@@ -268,7 +268,7 @@ class ViewController: UIViewController {
 		currentBet = 0
 		updateMainView()
 	}
-		
+	
 	//Helpers
 	func removeSlotImageViews(){
 		if secondContainer != nil {
