@@ -27,6 +27,11 @@ class ViewController: UIViewController {
 	var bank: UILabel!
 	var lemonInv: UILabel!
 	var iceInv: UILabel!
+
+	//first container: ints
+	var totalmoney:Int = 10
+	var totallemons:Int = 1
+	var totalIceCubes:Int = 1
 	
 	//second container: labels
 	var step1Label: UILabel!
@@ -41,6 +46,10 @@ class ViewController: UIViewController {
 	var moarIceButton: UIButton!
 	var lessIceButton: UIButton!
 	
+	//second container: ints
+	var lemonCart:Int = 0
+	var iceCart:Int = 0
+	
 	//third container: labels
 	var step2Label: UILabel!
 	var note3: UILabel!
@@ -54,6 +63,10 @@ class ViewController: UIViewController {
 	var fewwLemsButton: UIButton!
 	var moreIceButton: UIButton!
 	var fewwIceButton: UIButton!
+	
+	//third container: ints
+	var mixLemons:Int = 0
+	var mixIce:Int = 0
 	
 	//fourth container: labels
 	var step3Label: UILabel!
@@ -93,8 +106,6 @@ class ViewController: UIViewController {
 		mix = UIView(frame: CGRectMake(x, inventory.frame.height + supplies.frame.height, width, height))
 		startSelling = UIView(frame: CGRectMake(x, inventory.frame.height + supplies.frame.height + mix.frame.height, width, height))
 
-		startSelling.backgroundColor = UIColor.grayColor()
-		
 		self.view.addSubview(inventory)
 		self.view.addSubview(supplies)
 		self.view.addSubview(mix)
@@ -281,6 +292,7 @@ class ViewController: UIViewController {
 		fewwIceButton.addTarget(self, action: "mixsubIcePressed:", forControlEvents: UIControlEvents.TouchUpInside)
 		
 		cont.addSubview(step2Label)
+//		cont.addSubview(note3)
 		cont.addSubview(LemLabel)
 		cont.addSubview(IceLabel)
 		cont.addSubview(numLemLabel)
@@ -299,20 +311,20 @@ class ViewController: UIViewController {
 		var height:CGFloat = cont.bounds.height
 
 		step3Label = UILabel(frame: CGRectMake(x + 20, y, width, height))
-		step3Label.text = "Step 3: Start selling your brew"
+		step3Label.text = "Step 3: Start selling dat brew"
 		step3Label.textColor = UIColor.purpleColor()
 		step3Label.font = UIFont(name: "MarkerFeld-Wide", size: 20)
 		step3Label.sizeToFit()
-
 		
-		startButton = UIButton(frame: CGRectMake(x + width * 5 * kSixth, y + height * kThird, width * kSixth, height * kThird))
+		startButton = UIButton(frame: CGRectMake(x + width * kHalf, y + height * 2 * kThird, width * kThird, height * kThird))
 		startButton.setTitle("Start Day", forState: UIControlState.Normal)
 		startButton.setTitleColor(UIColor.purpleColor(), forState: UIControlState.Normal)
 		startButton.titleLabel?.font = UIFont(name: "MarkerFeld-Wide", size: 20)
-		startButton.center = CGPointMake(x + width * 5.5 * kSixth, y + height * 2.5 * kThird)
+		startButton.center = CGPointMake(x + width * kHalf, y + height * 2 * kThird)
 		startButton.addTarget(self, action: "startDayPressed:", forControlEvents: UIControlEvents.TouchUpInside)
 
 		startButton.layer.borderColor = UIColor.yellowColor().CGColor
+		startButton.layer.backgroundColor = UIColor.yellowColor().CGColor
 		startButton.layer.borderWidth = 2
 		
 		cont.addSubview(step3Label)
@@ -321,48 +333,81 @@ class ViewController: UIViewController {
 	}
 
 	func addLemsPressed(button: UIButton) {
-		buyLemLabel.text = "1"
+		if totalmoney > 1 {
+			buyLemLabel.text = "\(++lemonCart)"
+			totalmoney -= 2
+			
+			bank.text = "$\(totalmoney)"
+		}
 	}
 
 	func subLemsPressed(button: UIButton) {
-		buyLemLabel.text = "0"
+		if lemonCart > 0 {
+			buyLemLabel.text = "\(--lemonCart)"
+			totalmoney += 2
+			
+			bank.text = "$\(totalmoney)"
+		}
 	}
 
 	func addIcePressed(button: UIButton) {
-		buyIceLabel.text = "1"
+		if totalmoney > 0 {
+			buyIceLabel.text = "\(++iceCart)"
+			totalmoney -= 1
+			
+			bank.text = "$\(totalmoney)"
+		}
 	}
 
 	func subIcePressed(button: UIButton) {
-		buyIceLabel.text = "0"
+		if iceCart > 0 {
+			buyIceLabel.text = "\(--iceCart)"
+			totalmoney += 1
+			
+			bank.text = "$\(totalmoney)"
+		}
 	}
 
 	func mixaddLemsPressed(button: UIButton) {
-		numLemLabel.text = "2"
+		if totallemons > 0 {
+			numLemLabel.text = "\(++mixLemons)"
+			totallemons -= 1
+			
+			lemonInv.text = "\(totallemons) Lemons"
+		}
 	}
 	
 	func mixsubLemsPressed(button: UIButton) {
-		numLemLabel.text = "-2"
+		if mixLemons > 0 {
+			numLemLabel.text = "\(--mixLemons)"
+			totallemons += 1
+			
+			lemonInv.text = "\(totallemons) Lemons"
+		}
 	}
 	
 	func mixaddIcePressed(button: UIButton) {
-		numIceLabel.text = "2"
+		if totalIceCubes > 0 {
+			numIceLabel.text = "\(++mixIce)"
+			totalIceCubes -= 1
+			
+			iceInv.text = "\(totalIceCubes) Ice Cubes"
+		}
 	}
 	
 	func mixsubIcePressed(button: UIButton) {
-		numIceLabel.text = "-2"
+		if mixIce > 0 {
+			numIceLabel.text = "\(--mixIce)"
+			totalIceCubes += 1
+			
+			iceInv.text = "\(totalIceCubes) Ice Cubes"
+		}
 	}
 
 	func startDayPressed(button: UIButton) {
 		
 	}
 }
-
-
-
-
-
-
-
 
 
 
