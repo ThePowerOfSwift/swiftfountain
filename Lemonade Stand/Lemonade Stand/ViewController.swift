@@ -41,8 +41,30 @@ class ViewController: UIViewController {
 	var moarIceButton: UIButton!
 	var lessIceButton: UIButton!
 	
+	//third container: labels
+	var step2Label: UILabel!
+	var note3: UILabel!
+	var LemLabel: UILabel!
+	var IceLabel: UILabel!
+	var numLemLabel: UILabel!
+	var numIceLabel: UILabel!
+	
+	//third container: buttons
+	var moreLemsButton: UIButton!
+	var fewwLemsButton: UIButton!
+	var moreIceButton: UIButton!
+	var fewwIceButton: UIButton!
+	
+	//fourth container: labels
+	var step3Label: UILabel!
+	var note4: UILabel!
+	
+	//fourth container: buttons
+	var startButton: UIButton!
+	
 	//misc
 	var blackBorder:CGColor = UIColor.blackColor().CGColor
+	var redBorder:CGColor = UIColor.redColor().CGColor
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -71,15 +93,12 @@ class ViewController: UIViewController {
 		mix = UIView(frame: CGRectMake(x, inventory.frame.height + supplies.frame.height, width, height))
 		startSelling = UIView(frame: CGRectMake(x, inventory.frame.height + supplies.frame.height + mix.frame.height, width, height))
 
-//		inventory.backgroundColor = UIColor.grayColor()
-		supplies.backgroundColor = UIColor.grayColor()
-//		mix.backgroundColor = UIColor.grayColor()
-//		startSelling.backgroundColor = UIColor.redColor()
+		startSelling.backgroundColor = UIColor.grayColor()
 		
 		self.view.addSubview(inventory)
 		self.view.addSubview(supplies)
-//		self.view.addSubview(mix)
-//		self.view.addSubview(startSelling)
+		self.view.addSubview(mix)
+		self.view.addSubview(startSelling)
 	}
 	
 	func firstContainer(cont: UIView) {
@@ -124,7 +143,7 @@ class ViewController: UIViewController {
 		var width:CGFloat = cont.bounds.width
 		var height:CGFloat = cont.bounds.height
 
-		step1Label = UILabel(frame: CGRectMake(x, y, width, height))
+		step1Label = UILabel(frame: CGRectMake(x + 20, y, width, height))
 		step1Label.text = "Step 1: Purchase Supplies"
 		step1Label.textColor = UIColor.purpleColor()
 		step1Label.font = UIFont(name: "MarkerFeld-Wide", size: 20)
@@ -154,20 +173,36 @@ class ViewController: UIViewController {
 		buyIceLabel.textAlignment = NSTextAlignment.Center
 		buyIceLabel.font = UIFont(name: "MarkerFeld-Wide", size: 20)
 		
-		
-		moarIceButton = UIButton()
-		lessLemsButton = UIButton()
-		lessIceButton = UIButton()
-		
 		moarLemsButton = UIButton(frame: CGRectMake(x + width * 3 * kSixth, y + height * kThird, width * kSixth, height * kThird))
 		moarLemsButton.setTitle("+", forState: UIControlState.Normal)
 		moarLemsButton.setTitleColor(UIColor.purpleColor(), forState: UIControlState.Normal)
 		moarLemsButton.titleLabel?.font = UIFont(name: "MarkerFeld-Wide", size: 20)
-		moarLemsButton.center = CGPointMake(x + width * 3 * kSixth, y + height * kThird)
+		moarLemsButton.center = CGPointMake(x + width * 3.5 * kSixth, y + height * 1.5 * kThird)
 		moarLemsButton.addTarget(self, action: "addLemsPressed:", forControlEvents: UIControlEvents.TouchUpInside)
 
-		moarLemsButton.layer.borderColor = blackBorder
-		moarLemsButton.layer.borderWidth = 2
+		lessLemsButton = UIButton(frame: CGRectMake(x + width * 5 * kSixth, y + height * kThird, width * kSixth, height * kThird))
+		lessLemsButton.setTitle("-", forState: UIControlState.Normal)
+		lessLemsButton.setTitleColor(UIColor.purpleColor(), forState: UIControlState.Normal)
+		lessLemsButton.titleLabel?.font = UIFont(name: "MarkerFeld-Wide", size: 20)
+		lessLemsButton.center = CGPointMake(x + width * 5.5 * kSixth, y + height * 1.5 * kThird)
+		lessLemsButton.addTarget(self, action: "subLemsPressed:", forControlEvents: UIControlEvents.TouchUpInside)
+		
+		moarIceButton = UIButton(frame: CGRectMake(x + width * 3 * kSixth, y + height * kThird, width * kSixth, height * kThird))
+		moarIceButton.setTitle("+", forState: UIControlState.Normal)
+		moarIceButton.setTitleColor(UIColor.purpleColor(), forState: UIControlState.Normal)
+		moarIceButton.titleLabel?.font = UIFont(name: "MarkerFeld-Wide", size: 20)
+		moarIceButton.center = CGPointMake(x + width * 3.5 * kSixth, y + height * 2.5 * kThird)
+		moarIceButton.addTarget(self, action: "addIcePressed:", forControlEvents: UIControlEvents.TouchUpInside)
+		
+		lessIceButton = UIButton(frame: CGRectMake(x + width * 5 * kSixth, y + height * kThird, width * kSixth, height * kThird))
+		lessIceButton.setTitle("-", forState: UIControlState.Normal)
+		lessIceButton.setTitleColor(UIColor.purpleColor(), forState: UIControlState.Normal)
+		lessIceButton.titleLabel?.font = UIFont(name: "MarkerFeld-Wide", size: 20)
+		lessIceButton.center = CGPointMake(x + width * 5.5 * kSixth, y + height * 2.5 * kThird)
+		lessIceButton.addTarget(self, action: "subIcePressed:", forControlEvents: UIControlEvents.TouchUpInside)
+
+//		lessIceButton.layer.borderColor = blackBorder
+//		lessIceButton.layer.borderWidth = 2
 		
 		cont.addSubview(step1Label)
 		cont.addSubview(lemPriceLabel)
@@ -176,31 +211,150 @@ class ViewController: UIViewController {
 		cont.addSubview(buyIceLabel)
 		
 		cont.addSubview(moarLemsButton)
-//		cont.addSubview(moarIceButton)
-//		cont.addSubview(lessLemsButton)
-//		cont.addSubview(lessIceButton)
+		cont.addSubview(lessLemsButton)
+		cont.addSubview(moarIceButton)
+		cont.addSubview(lessIceButton)
 	}
 	
 	func thirdContainer(cont: UIView) {
+		var x:CGFloat = cont.bounds.origin.x
+		var y:CGFloat = cont.bounds.origin.y
+		var width:CGFloat = cont.bounds.width
+		var height:CGFloat = cont.bounds.height
+
+		step2Label = UILabel(frame: CGRectMake(x + 20, y, width, height))
+		step2Label.text = "Step 2: Mix your lemonade"
+		step2Label.textColor = UIColor.purpleColor()
+		step2Label.font = UIFont(name: "MarkerFeld-Wide", size: 20)
+		step2Label.sizeToFit()
 		
+		LemLabel = UILabel(frame: CGRectMake(x, y + height * kThird, width * kHalf, height * kThird))
+		LemLabel.text = "Lemons:"
+		LemLabel.textColor = UIColor.blackColor()
+		LemLabel.textAlignment = NSTextAlignment.Right
+		LemLabel.font = UIFont(name: "MarkerFeld-Wide", size: 20)
+		
+		IceLabel = UILabel(frame: CGRectMake(x, y + height * 2 * kThird, width * kHalf, height * kThird))
+		IceLabel.text = "Ice Cubes:"
+		IceLabel.textColor = UIColor.blackColor()
+		IceLabel.textAlignment = NSTextAlignment.Right
+		IceLabel.font = UIFont(name: "MarkerFeld-Wide", size: 20)
+		
+		numLemLabel = UILabel(frame: CGRectMake(x + width * 4 * kSixth, y + height * kThird, width * kSixth, height * kThird))
+		numLemLabel.text = "0"
+		numLemLabel.textColor = UIColor.blackColor()
+		numLemLabel.textAlignment = NSTextAlignment.Center
+		numLemLabel.font = UIFont(name: "MarkerFeld-Wide", size: 20)
+		
+		numIceLabel = UILabel(frame: CGRectMake(x + width * 4 * kSixth, y + height * 2 * kThird, width * kSixth, height * kThird))
+		numIceLabel.text = "0"
+		numIceLabel.textColor = UIColor.blackColor()
+		numIceLabel.textAlignment = NSTextAlignment.Center
+		numIceLabel.font = UIFont(name: "MarkerFeld-Wide", size: 20)
+
+		moreLemsButton = UIButton(frame: CGRectMake(x + width * 3 * kSixth, y + height * kThird, width * kSixth, height * kThird))
+		moreLemsButton.setTitle("+", forState: UIControlState.Normal)
+		moreLemsButton.setTitleColor(UIColor.purpleColor(), forState: UIControlState.Normal)
+		moreLemsButton.titleLabel?.font = UIFont(name: "MarkerFeld-Wide", size: 20)
+		moreLemsButton.center = CGPointMake(x + width * 3.5 * kSixth, y + height * 1.5 * kThird)
+		moreLemsButton.addTarget(self, action: "mixaddLemsPressed:", forControlEvents: UIControlEvents.TouchUpInside)
+		
+		fewwLemsButton = UIButton(frame: CGRectMake(x + width * 5 * kSixth, y + height * kThird, width * kSixth, height * kThird))
+		fewwLemsButton.setTitle("-", forState: UIControlState.Normal)
+		fewwLemsButton.setTitleColor(UIColor.purpleColor(), forState: UIControlState.Normal)
+		fewwLemsButton.titleLabel?.font = UIFont(name: "MarkerFeld-Wide", size: 20)
+		fewwLemsButton.center = CGPointMake(x + width * 5.5 * kSixth, y + height * 1.5 * kThird)
+		fewwLemsButton.addTarget(self, action: "mixsubLemsPressed:", forControlEvents: UIControlEvents.TouchUpInside)
+		
+		moreIceButton = UIButton(frame: CGRectMake(x + width * 3 * kSixth, y + height * kThird, width * kSixth, height * kThird))
+		moreIceButton.setTitle("+", forState: UIControlState.Normal)
+		moreIceButton.setTitleColor(UIColor.purpleColor(), forState: UIControlState.Normal)
+		moreIceButton.titleLabel?.font = UIFont(name: "MarkerFeld-Wide", size: 20)
+		moreIceButton.center = CGPointMake(x + width * 3.5 * kSixth, y + height * 2.5 * kThird)
+		moreIceButton.addTarget(self, action: "mixaddIcePressed:", forControlEvents: UIControlEvents.TouchUpInside)
+		
+		fewwIceButton = UIButton(frame: CGRectMake(x + width * 5 * kSixth, y + height * kThird, width * kSixth, height * kThird))
+		fewwIceButton.setTitle("-", forState: UIControlState.Normal)
+		fewwIceButton.setTitleColor(UIColor.purpleColor(), forState: UIControlState.Normal)
+		fewwIceButton.titleLabel?.font = UIFont(name: "MarkerFeld-Wide", size: 20)
+		fewwIceButton.center = CGPointMake(x + width * 5.5 * kSixth, y + height * 2.5 * kThird)
+		fewwIceButton.addTarget(self, action: "mixsubIcePressed:", forControlEvents: UIControlEvents.TouchUpInside)
+		
+		cont.addSubview(step2Label)
+		cont.addSubview(LemLabel)
+		cont.addSubview(IceLabel)
+		cont.addSubview(numLemLabel)
+		cont.addSubview(numIceLabel)
+		
+		cont.addSubview(moreLemsButton)
+		cont.addSubview(fewwLemsButton)
+		cont.addSubview(moreIceButton)
+		cont.addSubview(fewwIceButton)
 	}
 	
 	func fourthContainer(cont: UIView) {
+		var x:CGFloat = cont.bounds.origin.x
+		var y:CGFloat = cont.bounds.origin.y
+		var width:CGFloat = cont.bounds.width
+		var height:CGFloat = cont.bounds.height
+
+		step3Label = UILabel(frame: CGRectMake(x + 20, y, width, height))
+		step3Label.text = "Step 3: Start selling your brew"
+		step3Label.textColor = UIColor.purpleColor()
+		step3Label.font = UIFont(name: "MarkerFeld-Wide", size: 20)
+		step3Label.sizeToFit()
+
 		
+		startButton = UIButton(frame: CGRectMake(x + width * 5 * kSixth, y + height * kThird, width * kSixth, height * kThird))
+		startButton.setTitle("Start Day", forState: UIControlState.Normal)
+		startButton.setTitleColor(UIColor.purpleColor(), forState: UIControlState.Normal)
+		startButton.titleLabel?.font = UIFont(name: "MarkerFeld-Wide", size: 20)
+		startButton.center = CGPointMake(x + width * 5.5 * kSixth, y + height * 2.5 * kThird)
+		startButton.addTarget(self, action: "startDayPressed:", forControlEvents: UIControlEvents.TouchUpInside)
+
+		startButton.layer.borderColor = UIColor.yellowColor().CGColor
+		startButton.layer.borderWidth = 2
+		
+		cont.addSubview(step3Label)
+//		cont.addSubview(note4)
+		cont.addSubview(startButton)
 	}
 
 	func addLemsPressed(button: UIButton) {
 		buyLemLabel.text = "1"
 	}
 
+	func subLemsPressed(button: UIButton) {
+		buyLemLabel.text = "0"
+	}
 
+	func addIcePressed(button: UIButton) {
+		buyIceLabel.text = "1"
+	}
 
+	func subIcePressed(button: UIButton) {
+		buyIceLabel.text = "0"
+	}
 
+	func mixaddLemsPressed(button: UIButton) {
+		numLemLabel.text = "2"
+	}
+	
+	func mixsubLemsPressed(button: UIButton) {
+		numLemLabel.text = "-2"
+	}
+	
+	func mixaddIcePressed(button: UIButton) {
+		numIceLabel.text = "2"
+	}
+	
+	func mixsubIcePressed(button: UIButton) {
+		numIceLabel.text = "-2"
+	}
 
-
-
-
-
+	func startDayPressed(button: UIButton) {
+		
+	}
 }
 
 
