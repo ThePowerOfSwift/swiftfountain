@@ -30,8 +30,8 @@ class ViewController: UIViewController {
 
 	//first container: vals
 	var totalmoney:Int = 10
-	var totallemons:Int = 1
-	var totalIceCubes:Int = 1
+	var totallemons:Int = 0
+	var totalIceCubes:Int = 0
 	
 	//second container: labels
 	var step1Label: UILabel!
@@ -82,6 +82,11 @@ class ViewController: UIViewController {
 	var lemonadeGroup:Int = 0
 	var numCust:Int = 0
 	var custPref:[Int] = [0, 0, 0]
+	
+	//fourth container:images
+	var weather: String = ""
+	var weatherIcon: UIImage!
+	var imageView = UIImageView()
 	
 	//misc
 	var blackBorder:CGColor = UIColor.blackColor().CGColor
@@ -317,7 +322,8 @@ class ViewController: UIViewController {
 		var y:CGFloat = cont.bounds.origin.y
 		var width:CGFloat = cont.bounds.width
 		var height:CGFloat = cont.bounds.height
-
+		var weatherIcon = UIImage(named: "")
+		
 		step3Label = UILabel(frame: CGRectMake(x + 20, y, width, height))
 		step3Label.text = "Step 3: Start selling dat brew"
 		step3Label.textColor = UIColor.purpleColor()
@@ -357,11 +363,18 @@ class ViewController: UIViewController {
 		resetButton.layer.backgroundColor = UIColor.redColor().CGColor
 		resetButton.layer.borderWidth = 2
 		
+		weatherIcon = UIImage(named: "Mild")
+		
+		imageView = UIImageView(frame: CGRectMake(x + width * 2.5 * kSixth, y + height * 0.5 * kSixth + 6, weatherIcon.size.width, weatherIcon.size.height))
+		imageView.image = weatherIcon
+		
 		cont.addSubview(step3Label)
 //		cont.addSubview(note4)
 		cont.addSubview(startButton)
 		cont.addSubview(buyButton)
 		cont.addSubview(resetButton)
+
+		cont.addSubview(imageView)
 	}
 
 	func addLemsPressed(button: UIButton) {
@@ -439,6 +452,7 @@ class ViewController: UIViewController {
 	func startDayPressed(button: UIButton) {
 		lemonadeRatio = Float(mixLemons) / Float(mixIce)
 		numCust = Int(arc4random_uniform(UInt32(10))) + 1 //range is from 1-10
+		adjustCust()
 		custPref = [0, 0, 0]
 		
 		//clear mix
@@ -447,11 +461,8 @@ class ViewController: UIViewController {
 		
 		if !lemonadeRatio.isNaN {
 			mixAndSell()
-			updateAll()
-		} else {
-			updateAll()
 		}
-		
+		updateAll()
 	}
 	
 	func buyPressed(sender: UIButton!){
@@ -464,12 +475,13 @@ class ViewController: UIViewController {
 		iceCart = 0
 		
 		updateAll()
+		
 	}
 	
 	func resetPressed(sender: UIButton!){
 		totalmoney = 10
-		totallemons = 1
-		totalIceCubes = 1
+		totallemons = 0
+		totalIceCubes = 0
 		lemonCart = 0
 		iceCart = 0
 		mixLemons = 0
@@ -519,5 +531,29 @@ class ViewController: UIViewController {
 		
 		numLemLabel.text = "\(mixLemons)"
 		numIceLabel.text = "\(mixIce)"
+		
+		updateWeather()
+	}
+	
+	func updateWeather() {
+		var rando = arc4random_uniform(3)
+		
+		switch rando {
+		case 0:
+			weather = "Cold"
+		case 1:
+			weather = "Mild"
+		default:
+			weather = "Warm"
+		}
+		imageView.image = UIImage(named: "")
+	}
+	
+	func adjustCust() {
+		if weather == "Cold" {
+			numCust = 1
+		} else if weather == "Warm" {
+			numCust = 10
+		}
 	}
 }
