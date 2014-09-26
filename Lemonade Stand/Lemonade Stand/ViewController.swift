@@ -28,7 +28,7 @@ class ViewController: UIViewController {
 	var lemonInv: UILabel!
 	var iceInv: UILabel!
 
-	//first container: ints
+	//first container: vals
 	var totalmoney:Int = 10
 	var totallemons:Int = 1
 	var totalIceCubes:Int = 1
@@ -46,7 +46,7 @@ class ViewController: UIViewController {
 	var moarIceButton: UIButton!
 	var lessIceButton: UIButton!
 	
-	//second container: ints
+	//second container: vals
 	var lemonCart:Int = 0
 	var iceCart:Int = 0
 	
@@ -64,7 +64,7 @@ class ViewController: UIViewController {
 	var moreIceButton: UIButton!
 	var fewwIceButton: UIButton!
 	
-	//third container: ints
+	//third container: vals
 	var mixLemons:Int = 0
 	var mixIce:Int = 0
 	
@@ -74,6 +74,14 @@ class ViewController: UIViewController {
 	
 	//fourth container: buttons
 	var startButton: UIButton!
+	var buyButton: UIButton!
+	var resetButton: UIButton!
+	
+	//fourth container: vals
+	var lemonadeRatio:Float = 0.0
+	var lemonadeGroup:Int = 0
+	var numCust:Int = 0
+	var custPref:[Int] = [0, 0, 0]
 	
 	//misc
 	var blackBorder:CGColor = UIColor.blackColor().CGColor
@@ -317,7 +325,7 @@ class ViewController: UIViewController {
 		step3Label.sizeToFit()
 		
 		startButton = UIButton(frame: CGRectMake(x + width * kHalf, y + height * 2 * kThird, width * kThird, height * kThird))
-		startButton.setTitle("Start Day", forState: UIControlState.Normal)
+		startButton.setTitle("Start Selling", forState: UIControlState.Normal)
 		startButton.setTitleColor(UIColor.purpleColor(), forState: UIControlState.Normal)
 		startButton.titleLabel?.font = UIFont(name: "MarkerFeld-Wide", size: 20)
 		startButton.center = CGPointMake(x + width * kHalf, y + height * 2 * kThird)
@@ -326,10 +334,34 @@ class ViewController: UIViewController {
 		startButton.layer.borderColor = UIColor.yellowColor().CGColor
 		startButton.layer.backgroundColor = UIColor.yellowColor().CGColor
 		startButton.layer.borderWidth = 2
+
+		buyButton = UIButton(frame: CGRectMake(x + width * kThird, y + height * 2 * kThird, width * kThird, height * kThird))
+		buyButton.setTitle("Buy", forState: UIControlState.Normal)
+		buyButton.setTitleColor(UIColor.blackColor(), forState: UIControlState.Normal)
+		buyButton.titleLabel?.font = UIFont(name: "MarkerFeld-Wide", size: 20)
+		buyButton.center = CGPointMake(x + width * kSixth, y + height * 2 * kThird)
+		buyButton.addTarget(self, action: "buyPressed:", forControlEvents: UIControlEvents.TouchUpInside)
+
+		buyButton.layer.borderColor = UIColor.greenColor().CGColor
+		buyButton.layer.backgroundColor = UIColor.greenColor().CGColor
+		buyButton.layer.borderWidth = 2
+		
+		resetButton = UIButton(frame: CGRectMake(x + width * 3 * kThird, y + height * 2 * kThird, width * kThird, height * kThird))
+		resetButton.setTitle("Reset", forState: UIControlState.Normal)
+		resetButton.setTitleColor(UIColor.blackColor(), forState: UIControlState.Normal)
+		resetButton.titleLabel?.font = UIFont(name: "MarkerFeld-Wide", size: 20)
+		resetButton.center = CGPointMake(x + width * 5 * kSixth, y + height * 2 * kThird)
+		resetButton.addTarget(self, action: "resetPressed:", forControlEvents: UIControlEvents.TouchUpInside)
+		
+		resetButton.layer.borderColor = UIColor.redColor().CGColor
+		resetButton.layer.backgroundColor = UIColor.redColor().CGColor
+		resetButton.layer.borderWidth = 2
 		
 		cont.addSubview(step3Label)
 //		cont.addSubview(note4)
 		cont.addSubview(startButton)
+		cont.addSubview(buyButton)
+		cont.addSubview(resetButton)
 	}
 
 	func addLemsPressed(button: UIButton) {
@@ -405,9 +437,87 @@ class ViewController: UIViewController {
 	}
 
 	func startDayPressed(button: UIButton) {
+		lemonadeRatio = Float(mixLemons) / Float(mixIce)
+		numCust = Int(arc4random_uniform(UInt32(10))) + 1 //range is from 1-10
+		custPref = [0, 0, 0]
+		
+		//clear mix
+		mixLemons = 0
+		mixIce = 0
+		
+		if !lemonadeRatio.isNaN {
+			mixAndSell()
+			updateAll()
+		} else {
+			updateAll()
+		}
 		
 	}
+	
+	func buyPressed(sender: UIButton!){
+		//add newly purchased supplies to inventory
+		totallemons += lemonCart
+		totalIceCubes += iceCart
+		
+		//clear carts
+		lemonCart = 0
+		iceCart = 0
+		
+		updateAll()
+	}
+	
+	func resetPressed(sender: UIButton!){
+		totalmoney = 10
+		totallemons = 1
+		totalIceCubes = 1
+		lemonCart = 0
+		iceCart = 0
+		mixLemons = 0
+		mixIce = 0
+		updateAll()
+	}
+	
+	func mixAndSell() {
+		//generate lemonade group based on mix
+		if lemonadeRatio > 1 {
+			lemonadeGroup = 0
+		} else if lemonadeRatio == 1 {
+			lemonadeGroup = 1
+		} else if lemonadeRatio < 1 {
+			lemonadeGroup = 2
+		}
+		
+		//catagorize customer preferences
+		for var cust = 0; cust < numCust; cust++ {
+			switch Float(arc4random_uniform(UInt32(12))){//range is from 0-11
+			case 0...3:
+				custPref[0]++
+			case 4...7:
+				custPref[1]++
+			default:
+				custPref[2]++
+			}
+		}
+//		println("\(totalmoney)")
+		
+		//collect money from ppl whose pref i can match
+		totalmoney += custPref[lemonadeGroup]
+//		println("\(lemonadeRatio)")
+//		println("\(numCust)")
+//		println("\(lemonadeGroup)")
+//		println("\(custPref)")
+//		println("\(totalmoney)")
+	}
+	
+	func updateAll() {
+		bank.text = "$\(totalmoney)"
+		lemonInv.text = "\(totallemons) Lemons"
+		iceInv.text = "\(totalIceCubes) Ice Cubes"
+		
+		buyLemLabel.text = "\(lemonCart)"
+		buyIceLabel.text = "\(iceCart)"
+		
+		numLemLabel.text = "\(mixLemons)"
+		numIceLabel.text = "\(mixIce)"
+	}
 }
-
-
-
