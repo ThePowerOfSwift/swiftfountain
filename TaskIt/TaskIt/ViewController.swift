@@ -28,10 +28,12 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 		
 	}
 	
-//	override func viewDidAppear(animated: Bool) {
-//		super.viewDidAppear(animated)
-//		self.tableView.reloadData()
-//	}
+	override func viewDidAppear(animated: Bool) {
+		super.viewDidAppear(animated)
+		if tableView != nil {
+			tableView.reloadData()
+		}
+	}
 	
 	override func didReceiveMemoryWarning() {
 		super.didReceiveMemoryWarning()
