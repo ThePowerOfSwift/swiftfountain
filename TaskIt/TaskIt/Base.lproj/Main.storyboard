@@ -67,11 +67,55 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="tableView" destination="s0Z-xi-ues" id="SDT-gD-WFA"/>
+                        <segue destination="V1g-nF-Qdx" kind="show" identifier="showTaskDetail" id="IWl-Dt-pHB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="808" y="593"/>
+            <point key="canvasLocation" x="772" y="596"/>
+        </scene>
+        <!--Task Detail View Controller-->
+        <scene sceneID="oF3-Yw-3oS">
+            <objects>
+                <viewController id="V1g-nF-Qdx" customClass="TaskDetailViewController" customModule="TaskIt" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="KfG-Vh-TdG"/>
+                        <viewControllerLayoutGuide type="bottom" id="VU6-y1-gEo"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="t1w-6r-QJc">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Task" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mu2-VO-Kp2">
+                                <rect key="frame" x="28" y="82" width="265" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Subtask" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oyZ-Jh-kOo">
+                                <rect key="frame" x="28" y="147" width="265" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="IdF-cl-e55">
+                                <rect key="frame" x="0.0" y="211" width="320" height="162"/>
+                                <date key="date" timeIntervalSinceReferenceDate="433703272.79505599">
+                                    <!--2014-09-29 17:07:52 +0000-->
+                                </date>
+                            </datePicker>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="dueDatePicker" destination="IdF-cl-e55" id="vJL-Nc-MVO"/>
+                        <outlet property="subtaskTextField" destination="oyZ-Jh-kOo" id="Z4F-eN-xNX"/>
+                        <outlet property="taskTextField" destination="mu2-VO-Kp2" id="daf-75-KvA"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2Jb-AL-TA8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1177" y="596"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="h4I-Mp-ooJ">
