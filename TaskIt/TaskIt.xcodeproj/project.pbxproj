@@ -13,6 +13,7 @@
 		F65E014219D5FDC3007D3DB2 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F65E014119D5FDC3007D3DB2 /* Images.xcassets */; };
 		F65E014519D5FDC3007D3DB2 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = F65E014319D5FDC3007D3DB2 /* LaunchScreen.xib */; };
 		F65E015119D5FDC3007D3DB2 /* TaskItTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F65E015019D5FDC3007D3DB2 /* TaskItTests.swift */; };
+		F6BDBF8F19D9C58C0019CDCB /* TaskModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6BDBF8E19D9C58C0019CDCB /* TaskModel.swift */; };
 		F6FFE0C619D722B0007081A5 /* TaskCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6FFE0C519D722B0007081A5 /* TaskCell.swift */; };
 /* End PBXBuildFile section */
 
@@ -37,6 +38,7 @@
 		F65E014A19D5FDC3007D3DB2 /* TaskItTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TaskItTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F65E014F19D5FDC3007D3DB2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F65E015019D5FDC3007D3DB2 /* TaskItTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskItTests.swift; sourceTree = "<group>"; };
+		F6BDBF8E19D9C58C0019CDCB /* TaskModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskModel.swift; sourceTree = "<group>"; };
 		F6FFE0C519D722B0007081A5 /* TaskCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -86,6 +88,7 @@
 				F65E014119D5FDC3007D3DB2 /* Images.xcassets */,
 				F65E014319D5FDC3007D3DB2 /* LaunchScreen.xib */,
 				F65E013819D5FDC3007D3DB2 /* Supporting Files */,
+				F6BDBF8E19D9C58C0019CDCB /* TaskModel.swift */,
 			);
 			path = TaskIt;
 			sourceTree = "<group>";
@@ -217,6 +220,7 @@
 			files = (
 				F65E013D19D5FDC3007D3DB2 /* ViewController.swift in Sources */,
 				F6FFE0C619D722B0007081A5 /* TaskCell.swift in Sources */,
+				F6BDBF8F19D9C58C0019CDCB /* TaskModel.swift in Sources */,
 				F65E013B19D5FDC3007D3DB2 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
