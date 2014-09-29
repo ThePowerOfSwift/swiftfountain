@@ -27,7 +27,12 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 		taskArray = [task1, task2, task3]
 		
 	}
-
+	
+//	override func viewDidAppear(animated: Bool) {
+//		super.viewDidAppear(animated)
+//		self.tableView.reloadData()
+//	}
+	
 	override func didReceiveMemoryWarning() {
 		super.didReceiveMemoryWarning()
 		// Dispose of any resources that can be recreated.
@@ -41,10 +46,16 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 			let indexPath = tableView.indexPathForSelectedRow()
 			let theTask = taskArray[indexPath!.row]
 			detailVC.detailTaskModel = theTask
-			
+			detailVC.mainVC = self
+		} else if segue.identifier == "showTaskAdd" {
+			let addTaskVC:AddTaskViewController = segue.destinationViewController as AddTaskViewController
+			addTaskVC.mainVC = self
 		}
 	}
 	
+	@IBAction func addButtonTapped(sender: UIBarButtonItem) {
+		self.performSegueWithIdentifier("showTaskAdd", sender: self)
+	}
 	//UITableViewDataSource
 	func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 		return taskArray.count

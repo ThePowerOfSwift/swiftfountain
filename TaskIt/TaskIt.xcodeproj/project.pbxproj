@@ -16,6 +16,7 @@
 		F6BDBF8F19D9C58C0019CDCB /* TaskModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6BDBF8E19D9C58C0019CDCB /* TaskModel.swift */; };
 		F6BDBF9119D9C8D20019CDCB /* TaskDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6BDBF9019D9C8D20019CDCB /* TaskDetailViewController.swift */; };
 		F6BDBF9319D9E5410019CDCB /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6BDBF9219D9E5410019CDCB /* Date.swift */; };
+		F6BDBF9519D9ED230019CDCB /* AddTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6BDBF9419D9ED230019CDCB /* AddTaskViewController.swift */; };
 		F6FFE0C619D722B0007081A5 /* TaskCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6FFE0C519D722B0007081A5 /* TaskCell.swift */; };
 /* End PBXBuildFile section */
 
@@ -43,6 +44,7 @@
 		F6BDBF8E19D9C58C0019CDCB /* TaskModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskModel.swift; sourceTree = "<group>"; };
 		F6BDBF9019D9C8D20019CDCB /* TaskDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskDetailViewController.swift; sourceTree = "<group>"; };
 		F6BDBF9219D9E5410019CDCB /* Date.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
+		F6BDBF9419D9ED230019CDCB /* AddTaskViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTaskViewController.swift; sourceTree = "<group>"; };
 		F6FFE0C519D722B0007081A5 /* TaskCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -95,6 +97,7 @@
 				F65E014119D5FDC3007D3DB2 /* Images.xcassets */,
 				F65E014319D5FDC3007D3DB2 /* LaunchScreen.xib */,
 				F65E013819D5FDC3007D3DB2 /* Supporting Files */,
+				F6BDBF9419D9ED230019CDCB /* AddTaskViewController.swift */,
 			);
 			path = TaskIt;
 			sourceTree = "<group>";
@@ -230,6 +233,7 @@
 				F6BDBF8F19D9C58C0019CDCB /* TaskModel.swift in Sources */,
 				F65E013B19D5FDC3007D3DB2 /* AppDelegate.swift in Sources */,
 				F6BDBF9119D9C8D20019CDCB /* TaskDetailViewController.swift in Sources */,
+				F6BDBF9519D9ED230019CDCB /* AddTaskViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
