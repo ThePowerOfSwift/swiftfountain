@@ -93,8 +93,6 @@
 			isa = PBXGroup;
 			children = (
 				F65E013A19D5FDC3007D3DB2 /* AppDelegate.swift */,
-				F60645F219DB254C00080199 /* TaskItModel.xcdatamodeld */,
-				F64ACD3D19DB266000BC30FC /* TaskModel.swift */,
 				F65E013C19D5FDC3007D3DB2 /* ViewController.swift */,
 				F6BDBF9019D9C8D20019CDCB /* TaskDetailViewController.swift */,
 				F6BDBF9419D9ED230019CDCB /* AddTaskViewController.swift */,
@@ -103,6 +101,8 @@
 				F65E013E19D5FDC3007D3DB2 /* Main.storyboard */,
 				F65E014119D5FDC3007D3DB2 /* Images.xcassets */,
 				F65E014319D5FDC3007D3DB2 /* LaunchScreen.xib */,
+				F60645F219DB254C00080199 /* TaskItModel.xcdatamodeld */,
+				F64ACD3D19DB266000BC30FC /* TaskModel.swift */,
 				F65E013819D5FDC3007D3DB2 /* Supporting Files */,
 			);
 			path = TaskIt;

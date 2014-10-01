@@ -123,10 +123,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 		let fetchRequest = NSFetchRequest(entityName: "TaskModel")
 		let sortDescriptor = NSSortDescriptor(key: "date", ascending: true)
 		let completedDescriptor = NSSortDescriptor(key: "completed", ascending: true)
-		fetchedResultsController = NSFetchedResultsController(fetchRequest: taskFetchRequest(), managedObjectContext: managedObjectContext, sectionNameKeyPath: "completed", cacheName: nil)
-		
 		fetchRequest.sortDescriptors = [completedDescriptor, sortDescriptor]
-		
 		return fetchRequest
 	}
 	
